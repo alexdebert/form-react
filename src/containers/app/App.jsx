@@ -11,7 +11,7 @@ import UserList from '../userList/UserList'
 import Message from '../message/Message'
 
 //Styles
-import './app.scss'
+import './App.scss'
 
 const App = () => (
 	<div>

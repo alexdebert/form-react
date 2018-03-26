@@ -42,6 +42,7 @@ class Message extends Component {
 				</div>
 			)
 		}
+
 		return <div></div>
 	}
 }

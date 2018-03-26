@@ -64,7 +64,7 @@ class Form extends Component {
 
 		return(
 			<div className="form-group">
-				<label className="control-label">{field.label}</label>
+				<label className="control-label">{field.label} :</label>
 				<select {...field.input} defaultValue="" className="form-control">
 					<option value="" disabled>Paises</option>
 					{contriesList}

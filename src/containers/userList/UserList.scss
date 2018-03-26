@@ -1,0 +1,18 @@
+/**
+ * @overview User List component styles.
+ */
+
+.user-list-container {
+  display: inline-block;
+  float: right;
+  margin: 5%;
+  width: 40%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  min-height: 250px;
+  padding: 1%;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 1px 1px #ccc;
+  -moz-box-shadow: 1px 1px 1px 1px #ccc;
+  box-shadow: 1px 1px 1px 1px #ccc;
+}

@@ -7,6 +7,7 @@ import React from 'react'
 
 //Component
 import Form from '../form/Form'
+import UserList from '../userList/UserList'
 import Message from '../message/Message'
 
 //Styles
@@ -19,7 +20,10 @@ const App = () => (
 				<h1>Ejercicio Intive</h1>
 				<p>Nombre: Alexandre Debert</p>
 			</div>
-			<Form />
+			<div className="components-container">
+				<Form />
+				<UserList />
+			</div>
 			<Message />
 		</div>
 	</div>

@@ -2,3 +2,15 @@
  * Global Application styles.
  */
 
+.app-container {
+  background-color: #EEE;
+  border: 1px black solid;
+  border-radius: 5px;
+  height: 95%;
+  margin: auto;
+  width: 90%;
+
+  .info-container {
+    text-align: center;
+  }
+}

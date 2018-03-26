@@ -12,6 +12,7 @@ import { Field, reduxForm } from 'redux-form'
 //Actions
 import { getCountries } from '../../actions/countriesActions'
 import { showMessage } from '../../actions/messageActions'
+import { updateUsers } from '../../actions/usersActions'
 
 //Styles
 import './Form.scss'
@@ -35,12 +36,28 @@ const validate = values => {
 }
 
 class Form extends Component {
+	constructor() {
+		super()
+		this.state = {
+			users: []
+		}
+	}
+
 	componentDidMount() {
 		this.props.getCountries()
 	}
 
 	handleFormSubmit = (values) => {
+		this.updateUserValues(values)
 		this.props.showMessage(values)
+	}
+
+	updateUserValues(user) {
+		this.setState({
+			users: [...this.state.users, user]
+		}, () => {
+			this.props.updateUsers(this.state.users)
+		})
 	}
 
 	renderField = ({ input, label, type, birthdayText, meta: { touched, error } }) => (
@@ -109,13 +126,15 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return bindActionCreators({
 		getCountries,
-		showMessage
+		showMessage,
+		updateUsers
 	}, dispatch)
 }
 
 Form.propTypes = {
 	getCountries: PropTypes.func.isRequired,
 	showMessage: PropTypes.func.isRequired,
+	updateUsers: PropTypes.func.isRequired,
 	handleSubmit: PropTypes.func.isRequired,
 	countries: PropTypes.array.isRequired
 }

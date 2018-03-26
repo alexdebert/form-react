@@ -72,7 +72,6 @@ class Form extends Component {
 	)
 
 	renderSelectField(field) {
-		//TODO: check console error due to defaultValue
 		const contriesList = field.options.map(country => {
 			return (
 				<option value={country.name} key={country.alpha3Code}>{country.name}</option>
@@ -82,7 +81,7 @@ class Form extends Component {
 		return(
 			<div className="form-group">
 				<label className="control-label">{field.label} :</label>
-				<select {...field.input} defaultValue="" className="form-control">
+				<select {...field.input} className="form-control">
 					<option value="" disabled>Paises</option>
 					{contriesList}
 				</select>

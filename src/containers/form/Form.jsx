@@ -32,6 +32,10 @@ const validate = values => {
 		errors.name = "Please enter your name."
 	}
 
+	if (!values.country) {
+		errors.country = "Please select a country."
+	}
+
 	return errors
 }
 
@@ -71,21 +75,22 @@ class Form extends Component {
 		</fieldset>
 	)
 
-	renderSelectField(field) {
-		const contriesList = field.options.map(country => {
+	renderSelectField({options, input, label,  meta: { touched, error }}) {
+		const contriesList = options.map(country => {
 			return (
 				<option value={country.name} key={country.alpha3Code}>{country.name}</option>
 			)
 		})
 
 		return(
-			<div className="form-group">
-				<label className="control-label">{field.label} :</label>
-				<select {...field.input} className="form-control">
+			<fieldset className={`form-group ${touched && error ? "has-error" : ""}`}>
+				<label className="control-label">{label} :</label>
+				<select {...input} className="form-control">
 					<option value="" disabled>Paises</option>
 					{contriesList}
 				</select>
-			</div>
+				{touched && error && <div className="help-block">{error}</div>}
+			</fieldset>
 		)
 	}
 

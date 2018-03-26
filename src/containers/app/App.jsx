@@ -7,6 +7,7 @@ import React from 'react'
 
 //Component
 import Form from '../form/Form'
+import Message from '../message/Message'
 
 //Styles
 import './app.scss'
@@ -19,6 +20,7 @@ const App = () => (
 				<p>Nombre: Alexandre Debert</p>
 			</div>
 			<Form />
+			<Message />
 		</div>
 	</div>
 )

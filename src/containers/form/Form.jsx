@@ -11,6 +11,7 @@ import { Field, reduxForm } from 'redux-form'
 
 //Actions
 import { getCountries } from '../../actions/countriesActions'
+import { showMessage } from '../../actions/messageActions'
 
 //Styles
 import './Form.scss'
@@ -39,7 +40,7 @@ class Form extends Component {
 	}
 
 	handleFormSubmit = (values) => {
-		console.log(values)
+		this.props.showMessage(values)
 	}
 
 	renderField = ({ input, label, type, birthdayText, meta: { touched, error } }) => (
@@ -107,12 +108,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return bindActionCreators({
-		getCountries
+		getCountries,
+		showMessage
 	}, dispatch)
 }
 
 Form.propTypes = {
 	getCountries: PropTypes.func.isRequired,
+	showMessage: PropTypes.func.isRequired,
 	handleSubmit: PropTypes.func.isRequired,
 	countries: PropTypes.array.isRequired
 }

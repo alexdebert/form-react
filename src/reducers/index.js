@@ -7,11 +7,13 @@ import { combineReducers } from 'redux'
 
 //Reducers
 import CountriesReducer from './countries'
+import MessageReducer from './message'
 import { reducer as FormReducer } from 'redux-form'
 
 const rootReducer = combineReducers({
 	form: FormReducer,
-	countries: CountriesReducer
+	countries: CountriesReducer,
+	message: MessageReducer
 })
 
 export default rootReducer

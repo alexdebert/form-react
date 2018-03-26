@@ -18,14 +18,17 @@ import { updateUsers } from '../../actions/usersActions'
 import './Form.scss'
 
 const validate = values => {
-	//TODO: fix regex date
-	const errors = {}
-	const regDate = /^(0?[1-9]|[12][0-9]|3[01])([/](0?[1-9]|1[012])[/](19|20)?[0-9]{2})*$/
+	const errors = {},
+		regDate = /^(0?[1-9]|[12][0-9]|3[01])([/](0?[1-9]|1[012])[/](19|20)?[0-9]{2})*$/
+
+	let today = new Date(),
+		todayTime = today.getTime(),
+		birthdayTime = new Date(values.birthday).getTime()
 
 	if (!values.birthday) {
 		errors.birthday = "Please enter your birthday."
-	} else if (!regDate.test(values.birthday)) {
-		errors.email = "Invalid date"
+	} else if (!regDate.test(values.birthday) || birthdayTime >= todayTime) {
+		errors.birthday = "Invalid date"
 	}
 
 	if (!values.name) {

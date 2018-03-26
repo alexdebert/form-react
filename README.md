@@ -7,4 +7,4 @@
 - cd form-react
 - npm install
 - npm start
-- The project will run in this page: [http://localhost:3000](http://localhost:3000)
+- The project will be automatically opened in this page: [http://localhost:3000](http://localhost:3000)
